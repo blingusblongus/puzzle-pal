@@ -34,36 +34,36 @@ export const ShiftTable = ({ offset }: ShiftTableProps) => {
   const b2 = shifted.slice(13);
 
   return (
-    <div className="flex gap-2 justify-evenly w-full">
-      <div className="flex gap-2 justify-center w-1/3">
-        <div className="flex flex-col text-center w-5">
+    <div className="flex w-full justify-evenly gap-2">
+      <div className="flex w-1/3 justify-center gap-2">
+        <div className="flex w-5 flex-col text-center">
           {a1.map((code) => {
             return <div key={"a" + code}>{String.fromCharCode(code)}</div>;
           })}
         </div>
-        <div className="flex flex-col text-center w-5">
+        <div className="flex w-5 flex-col text-center">
           {a1.map(() => (
             <MoveRight />
           ))}
         </div>
-        <div className="flex flex-col text-center w-5">
+        <div className="flex w-5 flex-col text-center">
           {b1.map((code) => (
             <div key={"b" + code}>{String.fromCharCode(code)}</div>
           ))}
         </div>
       </div>
-      <div className="flex gap-2 justify-center w-1/3">
-        <div className="flex flex-col text-center w-5">
+      <div className="flex w-1/3 justify-center gap-2">
+        <div className="flex w-5 flex-col text-center">
           {a2.map((code) => {
             return <div key={"a" + code}>{String.fromCharCode(code)}</div>;
           })}
         </div>
-        <div className="flex flex-col text-center w-5">
+        <div className="flex w-5 flex-col text-center">
           {a1.map(() => (
             <MoveRight />
           ))}
         </div>
-        <div className="flex flex-col text-center w-5">
+        <div className="flex w-5 flex-col text-center">
           {b2.map((code) => (
             <div key={"b" + code}>{String.fromCharCode(code)}</div>
           ))}

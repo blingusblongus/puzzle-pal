@@ -19,9 +19,9 @@ export const Indexr = () => {
   const resultText = calculateOffsetText(inputValue, offset[0]);
 
   return (
-    <div className="w-full flex flex-col gap-1 max-w-md self-center">
+    <div className="flex w-full max-w-md flex-col gap-1 self-center">
       <div className="my-5">
-        <div className="font-bold text-2xl">Text Shifting by Index</div>
+        <div className="text-2xl font-bold">Text Shifting by Index</div>
         <div className="text-sm">Shift text by using the slider below.</div>
       </div>
 
@@ -36,10 +36,10 @@ export const Indexr = () => {
 
       <Separator />
 
-      <div className="flex justify-center items-center gap-3">
+      <div className="flex items-center justify-center gap-3">
         <div className="italic">Offset:</div>
 
-        <div className="self-center border border-sky-200 rounded-xl p-2 w-12 text-center">
+        <div className="w-12 self-center rounded-xl border border-sky-200 p-2 text-center">
           {offset[0] > -1 ? "+" : ""}
           {offset[0]}
         </div>
