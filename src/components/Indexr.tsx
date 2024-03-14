@@ -4,8 +4,8 @@ import { Input } from "./ui/input";
 import { Separator } from "./ui/separator";
 
 export const Indexr = () => {
-  const [offset, setOffset] = useState([0]);
-  const [inputValue, setInputValue] = useState("test");
+  const [offset, setOffset] = useState([4]);
+  const [inputValue, setInputValue] = useState("Pecan");
 
   const updateOffset = (value: number[]) => {
     setOffset(value);
@@ -18,7 +18,7 @@ export const Indexr = () => {
   const resultText = calculateOffsetText(inputValue, offset[0]);
 
   return (
-    <div className="w-full flex flex-col gap-1">
+    <div className="w-full flex flex-col gap-1 max-w-md self-center">
       <div>Input</div>
       <Input
         value={inputValue}
