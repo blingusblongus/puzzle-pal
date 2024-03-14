@@ -20,7 +20,7 @@ export const Indexr = () => {
 
   return (
     <div className="flex w-full max-w-md flex-col gap-1 self-center">
-      <div className="my-5">
+      <div>
         <div className="text-2xl font-bold">Text Shifting by Index</div>
         <div className="text-sm">Shift text by using the slider below.</div>
       </div>
