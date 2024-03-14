@@ -1,6 +1,7 @@
 import { useState, type ChangeEventHandler } from "react";
 import { Slider } from "./ui/slider";
 import { Input } from "./ui/input";
+import { Separator } from "./ui/separator";
 
 export const Indexr = () => {
   const [offset, setOffset] = useState([0]);
@@ -17,11 +18,24 @@ export const Indexr = () => {
   const resultText = calculateOffsetText(inputValue, offset[0]);
 
   return (
-    <div className="w-full">
-      <div>Indexr</div>
-      <div>Index offset: {offset}</div>
-      <Input value={inputValue} onChange={updateText} />
-      <Input readOnly value={resultText} />
+    <div className="w-full flex flex-col gap-1">
+      <div>Input</div>
+      <Input
+        value={inputValue}
+        onChange={updateText}
+        className="bg-slate-700"
+      />
+
+      <Separator />
+
+      <div className="self-center">
+        {offset[0] > -1 ? "+" : ""}
+        {offset[0]}
+      </div>
+
+      <Separator />
+      <div>Output</div>
+      <Input readOnly value={resultText} className="bg-slate-700" />
       <div className="p-5">
         <Slider
           defaultValue={[0]}
@@ -41,7 +55,6 @@ export const calculateOffsetText = (input: string, offset: number): string => {
 
   for (let i = 0; i < input.length; ++i) {
     const code = input.charCodeAt(i);
-    console.log(code);
 
     if (code < 65 || code > 122) {
       result += input[i];
