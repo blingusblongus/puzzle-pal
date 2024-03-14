@@ -41,8 +41,34 @@ export const calculateOffsetText = (input: string, offset: number): string => {
 
   for (let i = 0; i < input.length; ++i) {
     const code = input.charCodeAt(i);
-    const newChar = String.fromCharCode(code + offset);
-    console.log(code, offset, newChar);
+    console.log(code);
+
+    if (code < 65 || code > 122) {
+      result += input[i];
+      continue;
+    }
+    const uppercase = code < 97;
+
+    let newCode = code + offset;
+
+    switch (true) {
+      case uppercase && newCode < 65:
+        newCode += 26;
+        break;
+      case uppercase && newCode > 90:
+        newCode -= 26;
+        break;
+      case !uppercase && newCode < 97:
+        newCode += 26;
+        break;
+      case !uppercase && newCode > 122:
+        newCode -= 26;
+        break;
+      default:
+        break;
+    }
+
+    const newChar = String.fromCharCode(newCode);
 
     result += newChar;
   }
