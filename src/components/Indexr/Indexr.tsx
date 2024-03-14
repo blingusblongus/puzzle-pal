@@ -1,7 +1,7 @@
 import { useState, type ChangeEventHandler } from "react";
-import { Slider } from "./ui/slider";
-import { Input } from "./ui/input";
-import { Separator } from "./ui/separator";
+import { Slider } from "../ui/slider";
+import { Input } from "../ui/input";
+import { Separator } from "../ui/separator";
 import { ShiftTable } from "./ShiftTable";
 
 export const Indexr = () => {

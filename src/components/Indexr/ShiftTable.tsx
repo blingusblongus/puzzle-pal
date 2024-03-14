@@ -1,4 +1,3 @@
-import { Separator } from "@radix-ui/react-separator";
 import { MoveRight } from "lucide-react";
 
 type ShiftTableProps = {
