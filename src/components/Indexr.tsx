@@ -19,6 +19,11 @@ export const Indexr = () => {
 
   return (
     <div className="w-full flex flex-col gap-1 max-w-md self-center">
+      <div className="font-bold text-2xl">Text Shifting by Index</div>
+      <div className="text-sm">Shift text by using the slider below.</div>
+
+      <Separator />
+
       <div>Input</div>
       <Input
         value={inputValue}
@@ -34,6 +39,7 @@ export const Indexr = () => {
       </div>
 
       <Separator />
+
       <div>Output</div>
       <Input readOnly value={resultText} className="bg-slate-700" />
       <div className="p-5">
