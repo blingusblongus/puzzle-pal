@@ -1,0 +1,12 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Indexr } from "../components/Indexr";
+---
+
+<Layout title="Welcome to Astro.">
+  <main>
+    <div class="flex justify-center">
+      <Indexr client:load />
+    </div>
+  </main>
+</Layout>

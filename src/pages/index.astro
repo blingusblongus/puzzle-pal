@@ -1,12 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Indexr } from "../components/Indexr.tsx";
 ---
 
 <Layout title="Welcome to Astro.">
   <main>
-    <div class="flex justify-center">
-      <Indexr client:load />
+    <div>
+      <div class="">Resources for puzzling.</div>
+    </div>
+    <div class="flex text-blue-300 hover:underline">
+      <a href="/shift">Shift</a>
     </div>
   </main>
 </Layout>
