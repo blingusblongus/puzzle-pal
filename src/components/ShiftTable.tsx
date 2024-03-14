@@ -36,36 +36,39 @@ export const ShiftTable = ({ offset }: ShiftTableProps) => {
 
   return (
     <div className="flex gap-2 justify-evenly w-full">
-      <div className="flex flex-col">
-        {a1.map((code) => {
-          return <div key={"a" + code}>{String.fromCharCode(code)}</div>;
-        })}
+      <div className="flex gap-2 justify-center w-1/3">
+        <div className="flex flex-col text-center w-5">
+          {a1.map((code) => {
+            return <div key={"a" + code}>{String.fromCharCode(code)}</div>;
+          })}
+        </div>
+        <div className="flex flex-col text-center w-5">
+          {a1.map(() => (
+            <MoveRight />
+          ))}
+        </div>
+        <div className="flex flex-col text-center w-5">
+          {b1.map((code) => (
+            <div key={"b" + code}>{String.fromCharCode(code)}</div>
+          ))}
+        </div>
       </div>
-      <div className="flex flex-col">
-        {a1.map(() => (
-          <MoveRight />
-        ))}
-      </div>
-      <div className="flex flex-col">
-        {b1.map((code) => (
-          <div key={"b" + code}>{String.fromCharCode(code)}</div>
-        ))}
-      </div>
-      <Separator orientation="vertical" />
-      <div className="flex flex-col">
-        {a2.map((code) => {
-          return <div key={"a" + code}>{String.fromCharCode(code)}</div>;
-        })}
-      </div>
-      <div className="flex flex-col">
-        {a1.map(() => (
-          <MoveRight />
-        ))}
-      </div>
-      <div className="flex flex-col">
-        {b2.map((code) => (
-          <div key={"b" + code}>{String.fromCharCode(code)}</div>
-        ))}
+      <div className="flex gap-2 justify-center w-1/3">
+        <div className="flex flex-col text-center w-5">
+          {a2.map((code) => {
+            return <div key={"a" + code}>{String.fromCharCode(code)}</div>;
+          })}
+        </div>
+        <div className="flex flex-col text-center w-5">
+          {a1.map(() => (
+            <MoveRight />
+          ))}
+        </div>
+        <div className="flex flex-col text-center w-5">
+          {b2.map((code) => (
+            <div key={"b" + code}>{String.fromCharCode(code)}</div>
+          ))}
+        </div>
       </div>
     </div>
   );

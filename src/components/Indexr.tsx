@@ -36,9 +36,13 @@ export const Indexr = () => {
 
       <Separator />
 
-      <div className="self-center">
-        {offset[0] > -1 ? "+" : ""}
-        {offset[0]}
+      <div className="flex justify-center items-center gap-3">
+        <div className="italic">Offset:</div>
+
+        <div className="self-center border border-sky-200 rounded-xl p-2 w-12 text-center">
+          {offset[0] > -1 ? "+" : ""}
+          {offset[0]}
+        </div>
       </div>
 
       <Separator />
