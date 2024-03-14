@@ -2,6 +2,7 @@ import { useState, type ChangeEventHandler } from "react";
 import { Slider } from "./ui/slider";
 import { Input } from "./ui/input";
 import { Separator } from "./ui/separator";
+import { ShiftTable } from "./ShiftTable";
 
 export const Indexr = () => {
   const [offset, setOffset] = useState([4]);
@@ -52,6 +53,8 @@ export const Indexr = () => {
           step={1}
         />
       </div>
+
+      <ShiftTable offset={offset[0]} />
     </div>
   );
 };
