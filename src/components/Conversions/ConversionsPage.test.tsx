@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { intToBin, binToInt } from "./BinPage.tsx";
+import { intToBin, binToInt } from "./ConversionsPage.tsx";
 
 describe("Binary", () => {
   describe("intToBin", () => {

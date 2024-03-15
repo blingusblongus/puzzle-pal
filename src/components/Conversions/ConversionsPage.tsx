@@ -1,5 +1,5 @@
-export const BinPage = () => {
-  return <div>Binary</div>;
+export const ConversionsPage = () => {
+  return <div>Conversions</div>;
 };
 
 export const intToBin = (int: number): string => {
