@@ -10,6 +10,7 @@ export const ConversionsPage = () => {
       <Button
         value={num}
         onClick={() => setFromValue(fromValue + num.toString())}
+        size="lg"
       >
         {num}
       </Button>
@@ -17,20 +18,34 @@ export const ConversionsPage = () => {
   };
 
   const ClearButton = () => {
-    return <Button onClick={() => setFromValue("")}>C</Button>;
+    return (
+      <Button size="lg" onClick={() => setFromValue("")}>
+        C
+      </Button>
+    );
   };
 
-  console.log(fromValue);
+  const base10 = parseInt(fromValue, 2) || 0;
 
   return (
     <div>
-      <Input value={fromValue} readOnly className="bg-slate-400 text-right" />
+      <div className="flex items-end justify-between">
+        <span>Result: </span>
+        <span className="text-2xl font-bold">{base10}</span>
+      </div>
+
+      <Input value={fromValue} readOnly className="bg-slate-700 text-right" />
       <div className="flex gap-1 py-1">
         <KeypadButton num={0} />
         <KeypadButton num={1} />
         <ClearButton />
       </div>
-      <div>Result: {parseInt(fromValue, 2)}</div>
+
+      <div>Base10: {base10 || 0}</div>
+      <div>Base2: {base10.toString(2)}</div>
+      <div>Base3: {base10.toString(3)}</div>
+      <div>Duodecimal: {base10.toString(12)}</div>
+      <div>Hexadecimal: {base10.toString(16)}</div>
     </div>
   );
 };
