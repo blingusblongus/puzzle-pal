@@ -2,15 +2,14 @@ import { Button } from "../ui/button";
 
 type KeypadProps = {
   radix: number;
-  displayValue: string;
   setter: (value: React.SetStateAction<string>) => void;
 };
-export const Keypad = ({ radix, setter, displayValue }: KeypadProps) => {
+export const Keypad = ({ radix, setter }: KeypadProps) => {
   const KeypadButton = ({ num }: { num: number | string }) => {
     return (
       <Button
         value={num}
-        onClick={() => setter(displayValue + num.toString())}
+        onClick={() => setter((prev) => prev + num.toString())}
         size="lg"
         className="text-lg"
       >

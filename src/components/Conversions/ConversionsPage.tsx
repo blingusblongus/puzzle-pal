@@ -65,11 +65,7 @@ export const ConversionsPage = ({
         </div>
       </div>
 
-      <Keypad
-        radix={fromRadix}
-        setter={setFromValue}
-        displayValue={fromValue}
-      />
+      <Keypad radix={fromRadix} setter={setFromValue} />
     </div>
   );
 };
