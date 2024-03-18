@@ -12,6 +12,7 @@ export const Keypad = ({ radix, setter, displayValue }: KeypadProps) => {
         value={num}
         onClick={() => setter(displayValue + num.toString())}
         size="lg"
+        className="text-lg"
       >
         {num}
       </Button>
@@ -20,7 +21,7 @@ export const Keypad = ({ radix, setter, displayValue }: KeypadProps) => {
 
   const ClearButton = () => {
     return (
-      <Button size="lg" onClick={() => setter("")}>
+      <Button className="text-lg" size="lg" onClick={() => setter("")}>
         C
       </Button>
     );
@@ -29,7 +30,7 @@ export const Keypad = ({ radix, setter, displayValue }: KeypadProps) => {
   switch (radix) {
     case 2:
       return (
-        <div className="flex w-full max-w-sm flex-col gap-4">
+        <div className="flex w-full max-w-sm flex-col gap-4 self-center">
           <div className="grid grid-cols-2 gap-4">
             <KeypadButton num={0} />
             <KeypadButton num={1} />
@@ -39,7 +40,7 @@ export const Keypad = ({ radix, setter, displayValue }: KeypadProps) => {
       );
     case 10:
       return (
-        <div className="flex w-full max-w-sm flex-col gap-4">
+        <div className="flex w-full max-w-sm flex-col gap-4 self-center">
           <div className="grid grid-cols-3 gap-4">
             <KeypadButton num={1} />
             <KeypadButton num={2} />
@@ -59,7 +60,7 @@ export const Keypad = ({ radix, setter, displayValue }: KeypadProps) => {
       );
     case 16:
       return (
-        <div className="flex w-full max-w-sm flex-col gap-4">
+        <div className="flex w-full max-w-sm flex-col gap-4 self-center">
           <div className="grid grid-cols-3 gap-4">
             <KeypadButton num={1} />
             <KeypadButton num={2} />

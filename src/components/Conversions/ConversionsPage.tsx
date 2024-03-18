@@ -10,9 +10,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
+import { RadixResult } from "./RadixResult";
 
+const defaultRadix = 10;
 export const ConversionsPage = () => {
-  const [fromRadix, setFromRadix] = useState(2);
+  const [fromRadix, setFromRadix] = useState(defaultRadix);
   const [fromValue, setFromValue] = useState("");
   const base10 = parseInt(fromValue, fromRadix) || 0;
 
@@ -23,7 +25,7 @@ export const ConversionsPage = () => {
           <div className="font-bold">Input Radix:</div>
           <div className="w-40">
             <Select
-              defaultValue="2"
+              defaultValue={defaultRadix.toString()}
               onValueChange={(v) => {
                 setFromValue(base10.toString(parseInt(v)));
                 setFromRadix(parseInt(v));
@@ -51,11 +53,12 @@ export const ConversionsPage = () => {
 
         <Input value={fromValue} readOnly className="bg-slate-700 text-right" />
 
-        <div>Base10: {base10 || 0}</div>
-        <div>Base2: {base10.toString(2)}</div>
-        <div>Base3: {base10.toString(3)}</div>
-        <div>Duodecimal: {base10.toString(12)}</div>
-        <div>Hexadecimal: {base10.toString(16)}</div>
+        <div className="grid grid-cols-2 gap-4 md:flex">
+          <RadixResult result={base10.toString(2)} label="Binary" />
+          <RadixResult result={base10.toString()} label="Decimal" />
+          <RadixResult result={base10.toString(12)} label="Duodecimal" />
+          <RadixResult result={base10.toString(16)} label="Hexadecimal" />
+        </div>
       </div>
 
       <Keypad
