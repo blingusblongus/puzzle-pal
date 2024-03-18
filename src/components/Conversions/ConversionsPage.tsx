@@ -13,8 +13,10 @@ import {
 import { RadixResult } from "./RadixResult";
 import { Separator } from "@radix-ui/react-select";
 
-const defaultRadix = 10;
-export const ConversionsPage = () => {
+type ConversionsPageProps = { defaultRadix: number };
+export const ConversionsPage = ({
+  defaultRadix = 10,
+}: ConversionsPageProps) => {
   const [fromRadix, setFromRadix] = useState(defaultRadix);
   const [fromValue, setFromValue] = useState("");
   const base10 = parseInt(fromValue, fromRadix) || 0;
