@@ -11,7 +11,6 @@ import {
   SelectValue,
 } from "../ui/select";
 import { RadixResult } from "./RadixResult";
-import { Separator } from "@radix-ui/react-select";
 
 type ConversionsPageProps = { defaultRadix: number };
 export const ConversionsPage = ({
@@ -23,7 +22,7 @@ export const ConversionsPage = ({
 
   return (
     <div className="flex h-full w-full flex-col gap-8">
-      <div>
+      <div className="flex flex-col gap-4">
         <div className="flex items-center gap-4">
           <div className="font-bold">Input Radix:</div>
           <div className="w-40">
@@ -42,6 +41,7 @@ export const ConversionsPage = ({
                   <SelectLabel>Radix</SelectLabel>
                   <SelectItem value="2">Binary (2)</SelectItem>
                   <SelectItem value="10">Decimal (10)</SelectItem>
+                  <SelectItem value="12">Duodecimal (12)</SelectItem>
                   <SelectItem value="16">Hexadecimal (16)</SelectItem>
                 </SelectGroup>
               </SelectContent>
@@ -55,9 +55,9 @@ export const ConversionsPage = ({
           className="bg-slate-700 text-right text-lg"
         />
 
-        <Separator className="h-10" />
+        {/* <Separator className="h-10" /> */}
 
-        <div className="grid grid-cols-2 gap-4 md:flex">
+        <div className="grid grid-cols-2 gap-4">
           <RadixResult result={base10.toString(2)} label="Binary" />
           <RadixResult result={base10.toString()} label="Decimal" />
           <RadixResult result={base10.toString(12)} label="Duodecimal" />

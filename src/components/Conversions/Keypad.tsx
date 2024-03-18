@@ -67,6 +67,26 @@ export const Keypad = ({ radix, setter }: KeypadProps) => {
           <ClearRow />
         </div>
       );
+    case 12:
+      return (
+        <div className="flex w-full max-w-sm flex-col gap-4 self-center">
+          <div className="grid grid-cols-3 gap-4">
+            <KeypadButton num={1} />
+            <KeypadButton num={2} />
+            <KeypadButton num={3} />
+            <KeypadButton num={4} />
+            <KeypadButton num={5} />
+            <KeypadButton num={6} />
+            <KeypadButton num={7} />
+            <KeypadButton num={8} />
+            <KeypadButton num={9} />
+            <KeypadButton num={"a"} />
+            <KeypadButton num={"b"} />
+            <KeypadButton num={0} />
+          </div>
+          <ClearRow />
+        </div>
+      );
     case 16:
       return (
         <div className="flex w-full max-w-sm flex-col gap-4 self-center">
