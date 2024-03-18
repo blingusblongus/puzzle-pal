@@ -12,7 +12,7 @@ import {
 } from "../ui/select";
 import { RadixResult } from "./RadixResult";
 
-type ConversionsPageProps = { defaultRadix: number };
+type ConversionsPageProps = { defaultRadix?: number };
 export const ConversionsPage = ({
   defaultRadix = 10,
 }: ConversionsPageProps) => {
