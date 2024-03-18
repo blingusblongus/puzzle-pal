@@ -28,7 +28,7 @@ export const ConversionsPage = () => {
   const base10 = parseInt(fromValue, 2) || 0;
 
   return (
-    <div>
+    <div className="h-full w-full">
       <div className="flex items-end justify-between">
         <span>Result: </span>
         <span className="text-2xl font-bold">{base10}</span>
