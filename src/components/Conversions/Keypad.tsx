@@ -1,3 +1,4 @@
+import { MoveLeft } from "lucide-react";
 import { Button } from "../ui/button";
 
 type KeypadProps = {
@@ -18,11 +19,20 @@ export const Keypad = ({ radix, setter }: KeypadProps) => {
     );
   };
 
-  const ClearButton = () => {
+  const ClearRow = () => {
     return (
-      <Button className="text-lg" size="lg" onClick={() => setter("")}>
-        C
-      </Button>
+      <div className="grid grid-cols-2 gap-4">
+        <Button
+          className="text-lg"
+          size="lg"
+          onClick={() => setter((prev) => prev.slice(0, prev.length - 1))}
+        >
+          <MoveLeft />
+        </Button>
+        <Button className="text-lg" size="lg" onClick={() => setter("")}>
+          C
+        </Button>
+      </div>
     );
   };
 
@@ -34,7 +44,7 @@ export const Keypad = ({ radix, setter }: KeypadProps) => {
             <KeypadButton num={0} />
             <KeypadButton num={1} />
           </div>
-          <ClearButton />
+          <ClearRow />
         </div>
       );
     case 10:
@@ -54,7 +64,7 @@ export const Keypad = ({ radix, setter }: KeypadProps) => {
             <KeypadButton num={0} />
             <div />
           </div>
-          <ClearButton />
+          <ClearRow />
         </div>
       );
     case 16:
@@ -80,7 +90,7 @@ export const Keypad = ({ radix, setter }: KeypadProps) => {
             <KeypadButton num={0} />
             <div />
           </div>
-          <ClearButton />
+          <ClearRow />
         </div>
       );
 
