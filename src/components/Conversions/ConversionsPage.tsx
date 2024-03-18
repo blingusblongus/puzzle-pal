@@ -11,6 +11,7 @@ import {
   SelectValue,
 } from "../ui/select";
 import { RadixResult } from "./RadixResult";
+import { Separator } from "@radix-ui/react-select";
 
 const defaultRadix = 10;
 export const ConversionsPage = () => {
@@ -46,12 +47,13 @@ export const ConversionsPage = () => {
           </div>
         </div>
 
-        <div className="flex items-end justify-between">
-          <span>Result: </span>
-          <span className="text-2xl font-bold">{base10}</span>
-        </div>
+        <Input
+          value={fromValue}
+          readOnly
+          className="bg-slate-700 text-right text-lg"
+        />
 
-        <Input value={fromValue} readOnly className="bg-slate-700 text-right" />
+        <Separator className="h-10" />
 
         <div className="grid grid-cols-2 gap-4 md:flex">
           <RadixResult result={base10.toString(2)} label="Binary" />
