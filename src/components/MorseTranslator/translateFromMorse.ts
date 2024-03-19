@@ -1,6 +1,8 @@
 export const ERROR_INVALID = "Error: Invalid character.";
 
 export const translateFromMorse = (input: string): string => {
+  if (input === "") return "";
+
   const words = input.split("/").map((word) => word.split(" "));
 
   let output = "";

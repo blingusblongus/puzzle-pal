@@ -13,4 +13,7 @@ describe("translateFromMorse", () => {
   it("returns error message for invalid chars", () => {
     expect(translateFromMorse("../. -.. 2")).toBe(ERROR_INVALID);
   });
+  it("returns '' when input is empty", () => {
+    expect(translateFromMorse("")).toBe("");
+  });
 });
