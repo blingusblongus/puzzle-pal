@@ -2,11 +2,11 @@ import { Dot, Minus, MoveDown, MoveLeft, Space } from "lucide-react";
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
 import { useState } from "react";
-import { translateToMorse } from "./translateToMorse";
+import { translateFromMorse } from "./translateFromMorse";
 
 export const MorseTranslator = () => {
   const [inputText, setInputText] = useState("");
-  const output = translateToMorse(inputText);
+  const output = translateFromMorse(inputText);
 
   return (
     <div className="flex w-full flex-col gap-4">
