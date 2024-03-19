@@ -1,10 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { ConversionsPage } from "../components/Conversions/ConversionsPage";
+import {MorseTranslator} from "../components/MorseTranslator/MorseTranslator";
 ---
 
 <Layout title="Puzzle Pal | Conversions">
   <main class="flex h-full w-full justify-center">
-    <ConversionsPage client:load />
+    <MorseTranslator client:load />
   </main>
 </Layout>

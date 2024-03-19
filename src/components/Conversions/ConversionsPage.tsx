@@ -11,8 +11,9 @@ import {
   SelectValue,
 } from "../ui/select";
 import { RadixResult } from "./RadixResult";
+import type { ReactAstroProps } from "@/types/ReactAstroProps";
 
-type ConversionsPageProps = { defaultRadix?: number };
+type ConversionsPageProps = { defaultRadix?: number } & ReactAstroProps;
 export const ConversionsPage = ({
   defaultRadix = 10,
 }: ConversionsPageProps) => {
