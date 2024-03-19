@@ -1,4 +1,4 @@
-import { Dot, Minus, MoveDown, MoveLeft, MoveUp, Space } from "lucide-react";
+import { Dot, Minus, MoveDown, MoveLeft, MoveRight, Space } from "lucide-react";
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
 import { useState } from "react";
@@ -12,9 +12,30 @@ export const MorseTranslator = () => {
     ? translateFromMorse(inputText)
     : translateToMorse(inputText);
 
+  const toggleDirection = () => {
+    setInputText("");
+    setFromMorse((prev) => !prev);
+  };
+
   return (
     <div className="flex w-full flex-col gap-4">
       <div className="flex flex-col items-center gap-4">
+        <div className="flex items-center gap-2">
+          {fromMorse ? (
+            <>
+              <span>Morse</span>
+              <MoveRight />
+              <span>English</span>
+            </>
+          ) : (
+            <>
+              <span>English</span>
+              <MoveRight />
+              <span>Morse</span>
+            </>
+          )}
+          <Button onClick={toggleDirection}>Swap</Button>
+        </div>
         {fromMorse ? (
           <>
             <div>Input:</div>
@@ -35,12 +56,7 @@ export const MorseTranslator = () => {
                 }
               })}
             </div>
-            <MoveDown
-              onClick={() => {
-                setInputText("");
-                setFromMorse((prev) => !prev);
-              }}
-            />
+            <MoveDown />
             <div>Output:</div>
             <Textarea className="border-neutral-600" value={output} readOnly />
           </>
@@ -52,12 +68,7 @@ export const MorseTranslator = () => {
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
             />
-            <MoveUp
-              onClick={() => {
-                setInputText("");
-                setFromMorse((prev) => !prev);
-              }}
-            />
+            <MoveDown />
             <div>Output:</div>
             <div className="flex  min-h-12 w-full flex-wrap rounded-lg border border-neutral-600 p-3">
               {output.split("").map((char, i) => {
