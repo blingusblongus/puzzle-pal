@@ -67,6 +67,7 @@ export const MorseTranslator = () => {
               className="border-neutral-600"
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
+              placeholder="Input text to translate..."
             />
             <MoveDown />
             <div>Output:</div>
