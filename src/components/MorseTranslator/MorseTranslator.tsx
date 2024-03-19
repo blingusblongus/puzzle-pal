@@ -13,16 +13,17 @@ export const MorseTranslator = () => {
       <div className="flex flex-col items-center gap-4">
         <div>Input:</div>
         <div className="flex h-0 min-h-12 w-full flex-wrap rounded-lg border border-neutral-600 p-3">
-          {inputText.split("").map((char) => {
+          {inputText.split("").map((char, i) => {
+            const key = "morse" + char + i.toString();
             switch (char) {
               case ".":
-                return <Dot size={10} />;
+                return <Dot key={key} size={10} />;
               case "-":
-                return <Minus size={10} />;
+                return <Minus key={key} size={10} />;
               case " ":
-                return <span className="w-3" />;
+                return <span key={key} className="w-3" />;
               case "/":
-                return <Space size={16} />;
+                return <Space key={key} size={16} />;
               default:
                 return char;
             }
@@ -30,7 +31,7 @@ export const MorseTranslator = () => {
         </div>
         <MoveDown />
         <div>Output:</div>
-        <Textarea className="border-neutral-600" value={output} />
+        <Textarea className="border-neutral-600" value={output} readOnly />
       </div>
       <div className="flex justify-center gap-4">
         <Button onClick={() => setInputText((prev) => prev + ".")}>
