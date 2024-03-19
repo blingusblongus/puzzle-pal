@@ -2,21 +2,11 @@ import { Dot, Minus, MoveDown, MoveLeft, Space } from "lucide-react";
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
 import { useState } from "react";
-import { morseDictionary } from "./morseDictionary";
+import { translateToMorse } from "./translateToMorse";
 
 export const MorseTranslator = () => {
   const [inputText, setInputText] = useState("");
-
-  const words = inputText.split("/").map((word) => word.split(" "));
-
-  let output = "";
-
-  for (let word of words) {
-    for (let letter of word) {
-      output += morseDictionary[letter] || "";
-    }
-    output += " ";
-  }
+  const output = translateToMorse(inputText);
 
   return (
     <div className="flex w-full flex-col gap-4">
@@ -38,7 +28,6 @@ export const MorseTranslator = () => {
             }
           })}
         </div>
-        {/* <Textarea className="border-neutral-600" value={inputText} /> */}
         <MoveDown />
         <div>Output:</div>
         <Textarea className="border-neutral-600" value={output} />
