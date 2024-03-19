@@ -9,6 +9,7 @@ export const translateFromMorse = (input: string): string => {
 
   for (let word of words) {
     for (let letter of word) {
+      if (letter === "") continue;
       const nextLetter = morseDictionary[letter];
       if (!nextLetter) {
         return ERROR_INVALID;

@@ -16,4 +16,7 @@ describe("translateFromMorse", () => {
   it("returns '' when input is empty", () => {
     expect(translateFromMorse("")).toBe("");
   });
+  it("does not error when ends in space", () => {
+    expect(translateFromMorse("... ")).toBe("S");
+  });
 });
