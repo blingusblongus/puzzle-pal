@@ -42,8 +42,8 @@ export const ShiftTable = ({ offset }: ShiftTableProps) => {
           })}
         </div>
         <div className="flex w-5 flex-col text-center">
-          {a1.map(() => (
-            <MoveRight />
+          {a1.map((_v, i) => (
+            <MoveRight key={"MoveRightA" + i} />
           ))}
         </div>
         <div className="flex w-5 flex-col text-center">
@@ -55,17 +55,17 @@ export const ShiftTable = ({ offset }: ShiftTableProps) => {
       <div className="flex w-1/3 justify-center gap-2">
         <div className="flex w-5 flex-col text-center">
           {a2.map((code) => {
-            return <div key={"a" + code}>{String.fromCharCode(code)}</div>;
+            return <div key={"aa" + code}>{String.fromCharCode(code)}</div>;
           })}
         </div>
         <div className="flex w-5 flex-col text-center">
-          {a1.map(() => (
-            <MoveRight />
+          {a1.map((_v, i) => (
+            <MoveRight key={"MoveRightB" + i} />
           ))}
         </div>
         <div className="flex w-5 flex-col text-center">
           {b2.map((code) => (
-            <div key={"b" + code}>{String.fromCharCode(code)}</div>
+            <div key={"bb" + code}>{String.fromCharCode(code)}</div>
           ))}
         </div>
       </div>
