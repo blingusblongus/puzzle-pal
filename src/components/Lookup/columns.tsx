@@ -48,14 +48,15 @@ export const columns: ColumnDef<Row>[] = [
     cell: ({ row }) => {
       const morseStr: string = row.getValue("morse");
       const size = 14;
+      const key = "mor-" + row.getValue("decimal");
       return (
-        <div className="flex">
-          {morseStr.split("").map((s) => {
+        <div key={"mor-" + row.getValue("decimal")} className="flex">
+          {morseStr.split("").map((s, i) => {
             switch (s) {
               case ".":
-                return <Dot size={size} />;
+                return <Dot key={key + "-" + i} size={size} />;
               case "-":
-                return <Minus size={size} />;
+                return <Minus key={key + "-" + i} size={size} />;
               default:
                 console.error("unrecognized morse");
                 return "x";
@@ -69,7 +70,10 @@ export const columns: ColumnDef<Row>[] = [
     accessorKey: "braille",
     header: "Braille",
     cell: ({ row }) => (
-      <div className="flex justify-center text-2xl">
+      <div
+        key={"bra-" + row.getValue("decimal")}
+        className="flex justify-center text-2xl"
+      >
         {row.getValue("braille")}
       </div>
     ),
@@ -80,7 +84,10 @@ export const columns: ColumnDef<Row>[] = [
     cell: ({ row }) => {
       const [a1, a2] = row.getValue("semaphore") as Row["semaphore"];
       return (
-        <div className="flex w-full justify-center">
+        <div
+          key={"sem-" + row.getValue("decimal")}
+          className="flex w-full justify-center"
+        >
           <Semaphore angle1={a1} angle2={a2} size={40} />
         </div>
       );
