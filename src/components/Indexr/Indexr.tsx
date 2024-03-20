@@ -28,27 +28,20 @@ export const Indexr = () => {
       <Separator />
 
       <div>Input</div>
-      <Input
-        value={inputValue}
-        onChange={updateText}
-        className="bg-slate-700"
-      />
-
-      <Separator />
+      <Input value={inputValue} onChange={updateText} />
 
       <div className="flex items-center justify-center gap-3">
         <div className="italic">Offset:</div>
 
-        <div className="w-12 self-center rounded-xl border border-sky-200 p-2 text-center">
+        <div className="w-12 self-center rounded-xl border border-primary p-2 text-center">
           {offset[0] > -1 ? "+" : ""}
           {offset[0]}
         </div>
       </div>
 
-      <Separator />
-
       <div>Output</div>
-      <Input readOnly value={resultText} className="bg-slate-700" />
+      {/* Different border on focus to signify disabled */}
+      <Input readOnly value={resultText} className="focus-visible:ring-muted" />
       <div className="p-5">
         <Slider
           defaultValue={[0]}
