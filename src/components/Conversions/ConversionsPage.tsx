@@ -10,6 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
+import { Label } from "../ui/label";
 import { RadixResult } from "./RadixResult";
 import type { ReactAstroProps } from "@/types/ReactAstroProps";
 
@@ -25,7 +26,9 @@ export const ConversionsPage = ({
     <div className="flex h-full w-full flex-col gap-8">
       <div className="flex flex-col gap-4">
         <div className="flex items-center gap-4">
-          <div className="font-bold">Input Radix:</div>
+          <Label className="font-bold" id="radix-selector-label">
+            Input Radix:
+          </Label>
           <div className="w-40">
             <Select
               defaultValue={defaultRadix.toString()}
@@ -34,7 +37,7 @@ export const ConversionsPage = ({
                 setFromRadix(parseInt(v));
               }}
             >
-              <SelectTrigger>
+              <SelectTrigger aria-labelledby="radix-selector-label">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -50,7 +53,12 @@ export const ConversionsPage = ({
           </div>
         </div>
 
-        <Input value={fromValue} readOnly className="text-right text-lg" />
+        <Input
+          value={fromValue}
+          readOnly
+          className="text-right text-lg"
+          aria-label="input value"
+        />
 
         {/* <Separator className="h-10" /> */}
 

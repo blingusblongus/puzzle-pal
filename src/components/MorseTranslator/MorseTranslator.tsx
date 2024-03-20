@@ -4,6 +4,7 @@ import { Button } from "../ui/button";
 import { useState } from "react";
 import { translateFromMorse } from "./translateFromMorse";
 import { translateToMorse } from "./translateToMorse";
+import { Label } from "../ui/label";
 
 export const MorseTranslator = () => {
   const [inputText, setInputText] = useState("");
@@ -34,12 +35,17 @@ export const MorseTranslator = () => {
               <span>Morse</span>
             </>
           )}
-          <Button onClick={toggleDirection}>Swap</Button>
+          <Button aria-label="swap language" onClick={toggleDirection}>
+            Swap
+          </Button>
         </div>
         {fromMorse ? (
           <>
-            <div>Input:</div>
-            <div className="flex h-0 min-h-12 w-full flex-wrap rounded-lg border border-neutral-600 p-3">
+            <Label htmlFor="input-values">Input:</Label>
+            <div
+              id="input-values"
+              className="flex h-0 min-h-12 w-full flex-wrap rounded-lg border border-neutral-600 p-3"
+            >
               {inputText.split("").map((char, i) => {
                 const key = "morse" + char + i.toString();
                 switch (char) {
@@ -57,21 +63,30 @@ export const MorseTranslator = () => {
               })}
             </div>
             <MoveDown />
-            <div>Output:</div>
-            <Textarea className="border-neutral-600" value={output} readOnly />
+            <Label htmlFor="output-values">Output:</Label>
+            <Textarea
+              id="output-values"
+              className="border-neutral-600"
+              value={output}
+              readOnly
+            />
           </>
         ) : (
           <>
-            <div>Input:</div>
+            <Label htmlFor="input-values">Input:</Label>
             <Textarea
+              id="input-values"
               className="border-neutral-600"
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
               placeholder="Input text to translate..."
             />
             <MoveDown />
-            <div>Output:</div>
-            <div className="flex  min-h-12 w-full flex-wrap rounded-lg border border-neutral-600 p-3">
+            <Label htmlFor="output-values">Output:</Label>
+            <div
+              id="output-values"
+              className="flex  min-h-12 w-full flex-wrap rounded-lg border border-neutral-600 p-3"
+            >
               {output.split("").map((char, i) => {
                 const key = "morse" + char + i.toString();
                 switch (char) {
@@ -94,13 +109,20 @@ export const MorseTranslator = () => {
       {fromMorse && (
         <>
           <div className="flex justify-center gap-4">
-            <Button onClick={() => setInputText((prev) => prev + ".")}>
+            <Button
+              aria-label="dot"
+              onClick={() => setInputText((prev) => prev + ".")}
+            >
               <Dot />
             </Button>
-            <Button onClick={() => setInputText((prev) => prev + "-")}>
+            <Button
+              aria-label="dash"
+              onClick={() => setInputText((prev) => prev + "-")}
+            >
               <Minus />
             </Button>
             <Button
+              aria-label="backspace"
               onClick={() =>
                 setInputText((prev) => prev.slice(0, prev.length - 1))
               }

@@ -3,6 +3,7 @@ import { Slider } from "../ui/slider";
 import { Input } from "../ui/input";
 import { Separator } from "../ui/separator";
 import { ShiftTable } from "./ShiftTable";
+import { Label } from "../ui/label";
 
 export const Indexr = () => {
   const [offset, setOffset] = useState([4]);
@@ -27,8 +28,8 @@ export const Indexr = () => {
 
       <Separator />
 
-      <div>Input</div>
-      <Input value={inputValue} onChange={updateText} />
+      <Label htmlFor="input-value">Input</Label>
+      <Input id="input-value" value={inputValue} onChange={updateText} />
 
       <div className="flex items-center justify-center gap-3">
         <div className="italic">Offset:</div>
@@ -39,9 +40,14 @@ export const Indexr = () => {
         </div>
       </div>
 
-      <div>Output</div>
+      <Label htmlFor="output-value">Output</Label>
       {/* Different border on focus to signify disabled */}
-      <Input readOnly value={resultText} className="focus-visible:ring-muted" />
+      <Input
+        id="output-value"
+        readOnly
+        value={resultText}
+        className="focus-visible:ring-muted"
+      />
       <div className="p-5">
         <Slider
           defaultValue={[0]}
@@ -50,6 +56,7 @@ export const Indexr = () => {
           max={26}
           min={-26}
           step={1}
+          aria-label="offset" // Supposedly this works, it's a lighthouse false-negative
         />
       </div>
 
