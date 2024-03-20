@@ -1,3 +1,5 @@
+import { Card, CardContent, CardTitle } from "../ui/card";
+
 type RadixResult = {
   result: string;
   label: string;
@@ -5,11 +7,11 @@ type RadixResult = {
 
 export const RadixResult = ({ result, label }: RadixResult) => {
   return (
-    <div className="flex h-full w-full flex-col-reverse items-center justify-center rounded-xl border-2 border-neutral-400 p-3">
-      <div className="select-none">{label}</div>
-      <div className="flex w-full grow items-center justify-center overflow-x-scroll text-2xl">
+    <Card className="flex flex-col items-center p-2">
+      <CardContent className="w-full overflow-hidden overflow-x-scroll p-0 text-center">
         {result}
-      </div>
-    </div>
+      </CardContent>
+      <CardTitle className="select-none text-xl">{label}</CardTitle>
+    </Card>
   );
 };

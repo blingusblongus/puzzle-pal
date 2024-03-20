@@ -1,39 +1,13 @@
 ---
-import Card from "@/components/Card.astro";
 import Layout from "../layouts/Layout.astro";
+import {LinkCard} from "../components/LinkCard.tsx";
 ---
 
 <Layout title="Puzzle Pal | Home">
   <main class="flex w-full max-w-lg flex-col gap-3">
-    <!-- <div> -->
-    <!--   <div class="">Resources for puzzling.</div> -->
-    <!-- </div> -->
-    <!-- <div class="flex w-full max-w-md flex-col items-center gap-2 self-center"> -->
-    <!--   <a href="/shift" class="w-full"> -->
-    <!--     <div -->
-    <!--       class="w-full rounded-full bg-teal-800 p-4 text-center text-2xl font-bold active:bg-teal-600" -->
-    <!--     > -->
-    <!--       Shift -->
-    <!--     </div> -->
-    <!--   </a> -->
-    <!--   <a href="/conversions" class="w-full"> -->
-    <!--     <div -->
-    <!--       class="w-full rounded-full bg-orange-800 p-4 text-center text-2xl font-bold active:bg-teal-600" -->
-    <!--     > -->
-    <!--       Conversions -->
-    <!--     </div> -->
-    <!--   </a> -->
-    <!--   <a href="/morse" class="w-full"> -->
-    <!--     <div -->
-    <!--       class="w-full rounded-full bg-sky-800 p-4 text-center text-2xl font-bold active:bg-teal-600" -->
-    <!--     > -->
-    <!--       Morse Code Translator -->
-    <!--     </div> -->
-    <!--   </a> -->
-    <!-- </div> -->
     <div>Resources for puzzling</div>
-    <Card href="/shift" title="Shift" body="Offset letters or words by index" />
-    <Card href="/conversions" title="Conversions" body="Convert numbers between binary, decimal, duodecimal, and hexadecimal" />
-    <Card href="/morse" title="Morse Code" body="Easily input and translate Morse code" />
+    <LinkCard href="/shift" title="Caesar Cipher" description="Offset (shift) letters or words by index" />
+    <LinkCard href="/conversions" title="Numeric Conversions" description="Convert numbers between binary, decimal, duodecimal, and hexadecimal" />
+    <LinkCard href="/morse" title="Morse Code Translator" description="Easily input and translate Morse code" />
   </main>
 </Layout>
