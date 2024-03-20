@@ -53,7 +53,12 @@ export const ConversionsPage = ({
           </div>
         </div>
 
-        <Input value={fromValue} readOnly className="text-right text-lg" />
+        <Input
+          value={fromValue}
+          readOnly
+          className="text-right text-lg"
+          aria-label="input value"
+        />
 
         {/* <Separator className="h-10" /> */}
 
