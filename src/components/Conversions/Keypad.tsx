@@ -26,6 +26,7 @@ export const Keypad = ({ radix, setter }: KeypadProps) => {
           className="text-lg"
           size="lg"
           onClick={() => setter((prev) => prev.slice(0, prev.length - 1))}
+          aria-label="backspace"
         >
           <MoveLeft />
         </Button>
