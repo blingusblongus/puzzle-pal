@@ -7,6 +7,7 @@ export type Row = {
   morse: string;
   nato: string;
   semaphore: [number, number];
+  braille: string;
 };
 
 const convertNum = (row: TanRow<Row>, radix: number) => {
@@ -63,6 +64,15 @@ export const columns: ColumnDef<Row>[] = [
         </div>
       );
     },
+  },
+  {
+    accessorKey: "braille",
+    header: "Braille",
+    cell: ({ row }) => (
+      <div className="flex justify-center text-2xl">
+        {row.getValue("braille")}
+      </div>
+    ),
   },
   {
     accessorKey: "semaphore",
