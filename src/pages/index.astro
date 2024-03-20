@@ -1,13 +1,25 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import {LinkCard} from "../components/LinkCard.tsx";
+import { LinkCard } from "../components/LinkCard.tsx";
 ---
 
 <Layout title="Puzzle Pal | Home">
   <main class="flex w-full max-w-lg flex-col gap-3">
     <div>Resources for puzzling</div>
-    <LinkCard href="/shift" title="Caesar Cipher" description="Offset (shift) letters or words by index" />
-    <LinkCard href="/conversions" title="Numeric Conversions" description="Convert numbers between binary, decimal, duodecimal, and hexadecimal" />
-    <LinkCard href="/morse" title="Morse Code Translator" description="Easily input and translate Morse code" />
+    <LinkCard
+      href="/shift"
+      title="Caesar Cipher"
+      description="Offset (shift) letters or words by index"
+    />
+    <LinkCard
+      href="/conversions"
+      title="Numeric Conversions"
+      description="Convert numbers between binary, decimal, duodecimal, and hexadecimal"
+    />
+    <LinkCard
+      href="/morse"
+      title="Morse Code Translator"
+      description="Easily input and translate Morse code"
+    />
   </main>
 </Layout>

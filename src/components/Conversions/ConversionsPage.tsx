@@ -34,7 +34,7 @@ export const ConversionsPage = ({
                 setFromRadix(parseInt(v));
               }}
             >
-              <SelectTrigger className="bg-primary-foreground">
+              <SelectTrigger>
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -50,11 +50,7 @@ export const ConversionsPage = ({
           </div>
         </div>
 
-        <Input
-          value={fromValue}
-          readOnly
-          className="bg-slate-700 text-right text-lg"
-        />
+        <Input value={fromValue} readOnly className="text-right text-lg" />
 
         {/* <Separator className="h-10" /> */}
 
