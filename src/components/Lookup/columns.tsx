@@ -1,10 +1,12 @@
 import type { ColumnDef, Row as TanRow } from "@tanstack/react-table";
 import { Dot, Minus } from "lucide-react";
+import { Semaphore } from "./Semaphore";
 
 export type Row = {
   decimal: number;
   morse: string;
   nato: string;
+  semaphore: [number, number];
 };
 
 const convertNum = (row: TanRow<Row>, radix: number) => {
@@ -59,6 +61,18 @@ export const columns: ColumnDef<Row>[] = [
                 return "x";
             }
           })}
+        </div>
+      );
+    },
+  },
+  {
+    accessorKey: "semaphore",
+    header: "Semaphore",
+    cell: ({ row }) => {
+      const [a1, a2] = row.getValue("semaphore") as Row["semaphore"];
+      return (
+        <div className="flex w-full justify-center">
+          <Semaphore angle1={a1} angle2={a2} size={75} />
         </div>
       );
     },
