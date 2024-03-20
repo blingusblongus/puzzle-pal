@@ -29,7 +29,6 @@ export const columns: ColumnDef<Row>[] = [
   {
     accessorKey: "binary",
     header: "Binary",
-
     cell: ({ row }) => convertNum(row, 2),
   },
   {
@@ -72,7 +71,7 @@ export const columns: ColumnDef<Row>[] = [
       const [a1, a2] = row.getValue("semaphore") as Row["semaphore"];
       return (
         <div className="flex w-full justify-center">
-          <Semaphore angle1={a1} angle2={a2} size={75} />
+          <Semaphore angle1={a1} angle2={a2} size={40} />
         </div>
       );
     },

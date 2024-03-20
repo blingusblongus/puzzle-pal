@@ -27,7 +27,7 @@ export function Semaphore({ angle1, angle2, size = 100 }: SemaphoreProps) {
       <circle
         cx={centerX}
         cy={centerY}
-        r={size * 0.05}
+        r={size * 0.08}
         fill="hsl(var(--primary))"
       />
       <line
