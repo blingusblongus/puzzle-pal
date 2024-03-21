@@ -82,12 +82,13 @@ export const DataTable = <TData, TValue>({
               .map((column) => {
                 return (
                   <DropdownMenuCheckboxItem
+                    onSelect={(e) => e.preventDefault()} // Prevent menu close on select
                     key={column.id}
                     className="capitalize"
                     checked={column.getIsVisible()}
-                    onCheckedChange={(value) =>
-                      column.toggleVisibility(!!value)
-                    }
+                    onCheckedChange={(value) => {
+                      return column.toggleVisibility(!!value);
+                    }}
                   >
                     {column.id}
                   </DropdownMenuCheckboxItem>
