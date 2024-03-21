@@ -4,6 +4,8 @@ import {
   type ColumnDef,
   flexRender,
   type VisibilityState,
+  getFilteredRowModel,
+  type ColumnFiltersState,
 } from "@tanstack/react-table";
 import {
   Table,
@@ -21,6 +23,7 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import { Button } from "../ui/button";
+import { Input } from "../ui/input";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -37,20 +40,35 @@ export const DataTable = <TData, TValue>({
     braille: false,
     hex: false,
   });
+  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
 
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
+    onColumnFiltersChange: setColumnFilters,
     onColumnVisibilityChange: setColumnVisibility,
+    getFilteredRowModel: getFilteredRowModel(),
     state: {
       columnVisibility,
+      columnFilters,
     },
   });
 
   return (
     <div className="rounded-md border">
       <div className="flex justify-end p-3">
+        <Input
+          placeholder="Search by letter"
+          value={(table.getColumn("letter")?.getFilterValue() as string) ?? ""}
+          onChange={(event) => {
+            const val = event.target.value;
+            table
+              .getColumn("letter")
+              ?.setFilterValue(val.slice(val.length - 1, val.length));
+          }}
+          className="w-40"
+        />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="ml-auto">

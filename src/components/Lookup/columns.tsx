@@ -25,6 +25,11 @@ export const columns: ColumnDef<Row>[] = [
     accessorKey: "letter",
     header: "Letter",
     cell: ({ row }) => getLetter(row),
+    filterFn: (row, _id, filterValue) => {
+      return (
+        (filterValue as string).toLowerCase() === getLetter(row).toLowerCase()
+      );
+    },
   },
   { accessorKey: "decimal", header: "Decimal" },
   {
