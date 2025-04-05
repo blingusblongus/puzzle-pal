@@ -14,7 +14,7 @@ export const BrailleTranslator = () => {
   const letter = brailleMap[bitmask]?.letter;
   const brailleMessage = inputText
     .split("")
-    .map((letter) => letterToBraille[letter] || " ")
+    .map((letter) => letterToBraille[letter.toLowerCase()] || " ")
     .join("");
 
   return (
