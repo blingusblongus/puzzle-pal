@@ -1,4 +1,3 @@
-import { Dot, Minus, MoveDown, MoveLeft, MoveRight, Space } from "lucide-react";
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
 import { brailleMap, letterToBraille } from "./brailleMaps";
@@ -10,18 +9,14 @@ const BTN_GAP = "2";
 
 export const BrailleTranslator = () => {
   const [inputText, setInputText] = useState("");
-  const [fromBraille, setFromMorse] = useState(true);
-
   const [bitmask, setBitmask] = useState(0b000000);
 
-  // console.log(brailleMap);
-  console.log(bitmask, brailleMap[bitmask]);
-  console.log(bitmask.toString(2));
   const letter = brailleMap[bitmask]?.letter;
   const brailleMessage = inputText
     .split("")
     .map((letter) => letterToBraille[letter] || " ")
     .join("");
+
   return (
     <div className="flex w-full flex-col gap-4">
       <Textarea
@@ -29,7 +24,7 @@ export const BrailleTranslator = () => {
         onChange={(e) => setInputText(e.target.value)}
       ></Textarea>
       <div className="flex justify-center">&darr;</div>
-      <Textarea value={brailleMessage} readOnly></Textarea>
+      <Textarea className="text-xl" value={brailleMessage} readOnly></Textarea>
       <div className="flex w-full">
         <div className="flex w-1/2 flex-col items-center justify-between gap-4">
           <div className="mt-4 items-center text-4xl">
