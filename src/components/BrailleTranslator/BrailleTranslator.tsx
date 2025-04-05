@@ -64,7 +64,7 @@ export const BrailleTranslator = () => {
                       className={clsx(
                         `h-${BTN_DIAMETER} min-h-${BTN_DIAMETER} w-${BTN_DIAMETER} min-w-${BTN_DIAMETER} rounded-full border-2 border-primary`,
                         {
-                          "bg-muted": bitmask & pos,
+                          "bg-primary": bitmask & pos,
                         },
                       )}
                       onClick={() => setBitmask((prev) => prev ^ pos)}
