@@ -1,0 +1,10 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { BrailleTranslator } from "../components/BrailleTranslator/BrailleTranslator";
+---
+
+<Layout title="Puzzle Pal | Conversions">
+  <main class="flex h-full w-full justify-center">
+    <BrailleTranslator client:load />
+  </main>
+</Layout>
