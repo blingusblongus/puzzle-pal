@@ -14,6 +14,8 @@ import { Label } from "../ui/label";
 import { RadixResult } from "./RadixResult";
 import type { ReactAstroProps } from "@/types/ReactAstroProps";
 
+const alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
 type ConversionsPageProps = { defaultRadix?: number } & ReactAstroProps;
 export const ConversionsPage = ({
   defaultRadix = 10,
@@ -21,6 +23,7 @@ export const ConversionsPage = ({
   const [fromRadix, setFromRadix] = useState(defaultRadix);
   const [fromValue, setFromValue] = useState("");
   const base10 = parseInt(fromValue, fromRadix) || 0;
+  const letter = base10ToAlpha(base10);
 
   return (
     <div className="flex h-full w-full flex-col gap-8">
@@ -67,10 +70,16 @@ export const ConversionsPage = ({
           <RadixResult result={base10.toString()} label="Decimal" />
           <RadixResult result={base10.toString(12)} label="Duodecimal" />
           <RadixResult result={base10.toString(16)} label="Hexadecimal" />
+          <RadixResult result={letter} label="Alphabet" />
         </div>
       </div>
 
       <Keypad radix={fromRadix} setter={setFromValue} />
     </div>
   );
+};
+
+const base10ToAlpha = (n: number): string => {
+  if (n <= 0 || n > 26) return "∅";
+  return alpha.substring(n - 1, n);
 };
